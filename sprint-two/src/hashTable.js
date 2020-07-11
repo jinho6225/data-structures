@@ -15,8 +15,12 @@ HashTable.prototype.retrieve = function (k) {
 
 HashTable.prototype.remove = function (k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-
-  console.log(this._storage)
+  function helper(value, idx, arr) {
+    if (index === idx) {
+      arr[idx] = undefined;
+    }
+  }
+  this._storage.each(helper);
 };
 
 /*
